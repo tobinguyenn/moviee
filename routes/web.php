@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\ComingSoon;
+use App\Livewire\Home;
+use App\Livewire\NowShowing;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', Home::class)->name('home');
+Route::get('now-showing', NowShowing::class)->name('movies.now_showing');
+Route::get('coming-soon', ComingSoon::class)->name('movies.coming_soon');
