@@ -3,10 +3,10 @@
 @php
     $classes =
         $active ?? false
-            ? 'inline-flex items-center px-1 pt-1 border-b-2 border-pink text-md font-bold leading-5 text-blue
+            ? 'inline-flex items-center px-1 pt-1 border-b-2 border-pink text-foreground text-md font-medium leading-5
 focus:outline-none focus:border-pink transition duration-150 ease-in-out'
-            : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-md font-medium leading-5 text-gray-500
-hover:text-pink hover:border-blue focus:outline-none focus:text-pink focus:border-blue transition
+            : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-md text-muted leading-5
+hover:text-foreground hover:border-muted focus:outline-none focus:text-foreground focus:border-blue transition
 duration-150 ease-in-out';
 @endphp
 

@@ -20,6 +20,7 @@ class MovieFactory extends Factory
     {
         return [
             'rated_id' => rand(1, count(RatedSeeder::DATA)),
+            'slug' => fake()->slug,
             'title' => fake()->sentence,
             'poster' => fake()->imageUrl(240, 355, fake()->word),
             'description' => fake()->paragraph,

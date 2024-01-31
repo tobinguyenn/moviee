@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('code', 10);
+            $table->string('color', 10);
             $table->string('description');
             $table->timestamps();
         });

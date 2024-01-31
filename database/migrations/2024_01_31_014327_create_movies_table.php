@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('rated_id');
+            $table->string('slug', 350);
             $table->string('title');
             $table->text('poster');
             $table->string('description', config('validation.movie.description.max'))->nullable();

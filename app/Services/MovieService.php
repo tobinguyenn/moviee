@@ -21,6 +21,6 @@ class MovieService
             return $query->get();
         }
 
-        return $query->status($status)->get();
+        return $query->status($status)->limit(5)->get();
     }
 }

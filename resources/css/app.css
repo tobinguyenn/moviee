@@ -1,3 +1,7 @@
+@import '@fortawesome/fontawesome-free/css/fontawesome.min.css';
+@import '@fortawesome/fontawesome-free/css/solid.min.css';
+@import '@fortawesome/fontawesome-free/css/brands.min.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,5 +9,6 @@
 @layer base {
     html {
         font-family: 'figtree';
+        @apply text-foreground;
     }
 }

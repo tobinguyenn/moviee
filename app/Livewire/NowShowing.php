@@ -6,5 +6,9 @@ use Livewire\Component;
 
 class NowShowing extends Component
 {
-    public $title = 'Now Showing';
+    public function render()
+    {
+        return view('now-showing')
+            ->title(__('Now Showing'));
+    }
 }

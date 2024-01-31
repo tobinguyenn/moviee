@@ -17,6 +17,7 @@ class Movie extends Model
      * @var array
      */
     protected $fillable = [
+        'slug',
         'rated_id',
         'title',
         'poster',
