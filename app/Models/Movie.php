@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use App\Enums\MovieStatus;
 
 class Movie extends Model
@@ -37,6 +39,7 @@ class Movie extends Model
      */
     protected $casts = [
         'status' => MovieStatus::class,
+        'release_date' => 'date',
     ];
 
     /**
@@ -62,5 +65,20 @@ class Movie extends Model
     public function rated(): BelongsTo
     {
         return $this->belongsTo(Rated::class);
+    }
+
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
+
+    public function durationLabel(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->duration . Str::plural(__(' minute'), $this->duration)
+        );
     }
 }

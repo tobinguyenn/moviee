@@ -15,7 +15,7 @@ class ComingSoon extends Component
     {
         $this->movies = $movieService->getAll(
             MovieStatus::COMING_SOON,
-            ['id', 'rated_id', 'title', 'poster', 'release_date'],
+            ['id', 'slug', 'rated_id', 'title', 'poster', 'release_date'],
             ['rated:id,code,color']
         );
     }
