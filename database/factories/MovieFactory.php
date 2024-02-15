@@ -18,12 +18,17 @@ class MovieFactory extends Factory
      */
     public function definition(): array
     {
+        $description = implode('. ', fake()->paragraphs(5));
+        if (strlen($description) > config('validation.movie.description.max')) {
+            $description = substr($description, 0, config('validation.movie.description.max'));
+        }
+
         return [
             'rated_id' => rand(1, count(RatedSeeder::DATA)),
             'slug' => fake()->slug,
             'title' => fake()->sentence,
             'poster' => fake()->imageUrl(240, 355, fake()->word),
-            'description' => fake()->paragraph,
+            'description' => $description,
             'director' => fake()->name,
             'casts' => implode(', ', [fake()->name, fake()->name, fake()->name]),
             'genre' => fake()->word,
@@ -48,6 +53,7 @@ class MovieFactory extends Factory
 
                 return fake()->randomElement([$status, MovieStatus::CANCELLED, MovieStatus::DELAYED]);
             },
+            'trailer_link' => 'https://www.youtube-nocookie.com/embed/uJMCNJP2ipI?si=hZ_3iRFAymz9CfY4',
         ];
     }
 }

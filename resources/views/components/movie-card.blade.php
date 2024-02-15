@@ -2,9 +2,7 @@
 
 <div class="relative {{ $width }} {{ $height }} group/card overflow-hidden">
     {{-- Rated card --}}
-    <x-rated-card
-        class="flex justify-center items-center min-w-10 px-2 py-1 z-10 absolute top-2 left-2 font-bold rounded text-white uppercase"
-        :color="$rated->color">{{ $rated->code }}</x-rated-card>
+    <x-rated-card class="absolute top-2 left-2" :color="$rated->color">{{ $rated->code }}</x-rated-card>
 
     {{-- Play button --}}
     <div

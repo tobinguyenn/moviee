@@ -15,7 +15,7 @@ class Home extends Component
     {
         $this->movies = $movieService->getAll(
             [MovieStatus::NOW_SHOWING, MovieStatus::COMING_SOON],
-            ['id', 'slug', 'rated_id', 'title', 'poster', 'release_date'],
+            ['id', 'slug', 'rated_id', 'title', 'poster', 'release_date', 'status'],
             ['rated:id,code,color']
         );
     }

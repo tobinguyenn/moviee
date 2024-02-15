@@ -30,6 +30,7 @@ class Movie extends Model
         'release_date',
         'duration',
         'status',
+        'trailer_link',
     ];
 
     /**

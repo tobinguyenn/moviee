@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('rated_id');
-            $table->string('slug', 350);
+            $table->string('slug', 350)->unique();
             $table->string('title');
             $table->text('poster');
             $table->string('description', config('validation.movie.description.max'))->nullable();
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->date('release_date');
             $table->integer('duration')->unsigned();
             $table->boolean('status')->default(MovieStatus::COMING_SOON);
+            $table->string('trailer_link')->nullable();
             $table->timestamps();
         });
     }

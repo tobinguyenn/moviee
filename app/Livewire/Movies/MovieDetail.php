@@ -2,12 +2,17 @@
 
 namespace App\Livewire\Movies;
 
-use App\Models\Movie;
 use Livewire\Component;
+use App\Models\Movie;
 
 class MovieDetail extends Component
 {
     public Movie $movie;
+
+    public function mount()
+    {
+        $this->movie->loadMissing('rated:id,code,description,name,color');
+    }
 
     public function render()
     {

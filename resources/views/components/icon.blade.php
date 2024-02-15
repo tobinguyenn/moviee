@@ -4,7 +4,6 @@
     if ($type != Icon::class) {
         $type == Icon::SOLID;
     }
-    $class = "fa-$type fa-$name";
 @endphp
 
-<i class="{{ $class }}"></i>
+<i {{ $attributes->merge(['class' => "fa-$type fa-$name"]) }} {{ $attributes->whereStartsWith('wire:') }}></i>
