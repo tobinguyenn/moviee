@@ -25,8 +25,8 @@
                             @enderror
                         </div>
                         <x-button :isSubmit="true" class="flex items-center">
-                            Login
-                            <x-loading class="ml-2" />
+                            <span wire:loading.remove>Login</span>
+                            <x-loading type="secondary" />
                         </x-button>
                     </div>
                 </form>
