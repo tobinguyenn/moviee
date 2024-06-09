@@ -1,8 +1,8 @@
 <?php
 
-use App\Controllers\UserController;
-use Core\Router\Router;
+use App\Controllers\MovieController;
+use Core\Routing\Router;
 
-Router::get('', [UserController::class]);
+Router::get('movies', [MovieController::class]);
 
 Router::dispatch();

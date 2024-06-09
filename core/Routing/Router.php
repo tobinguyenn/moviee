@@ -1,6 +1,8 @@
 <?php
 
-namespace Core\Router;
+namespace Core\Routing;
+
+use Core\Constants\HttpStatusCode;
 
 class Router
 {
@@ -14,6 +16,12 @@ class Router
         $path = ltrim($path, '/');
 
         return $path;
+    }
+
+    private static function error404()
+    {
+        http_response_code(HttpStatusCode::NOT_FOUND);
+        echo json_encode(['code' => HttpStatusCode::NOT_FOUND]);
     }
 
     public static function dispatch()
@@ -38,7 +46,7 @@ class Router
             return;
         }
 
-        header('Location: 404');
+        self::error404();
     }
 
     public static function get(string $path, mixed $action)
@@ -46,8 +54,3 @@ class Router
         self::$routes[self::METHOD_GET][self::normalizedPath($path)] = $action;
     }
 }
-
-Router::get('404', function () {
-    http_response_code(404);
-    echo json_encode(['status' => 404]);
-});
